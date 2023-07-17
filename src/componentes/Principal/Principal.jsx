@@ -58,7 +58,7 @@ const Principal = () => {
   
   const handleEditTask = (index) => {
     const taskToEdit = tasks[index];
-    setEditTask(taskToEdit);
+    setEditTask(taskToEdit)
     setIsEditing(true);
     setEditingIndex(index);
     setIsModalOpen(true);
@@ -69,7 +69,7 @@ const Principal = () => {
       if (index === editingIndex) {
         return {
           ...taskItem,
-          task: editTask,
+          task: task,
         };
       }
       return taskItem;
@@ -77,7 +77,6 @@ const Principal = () => {
   
     setTasks(updatedTasks);
     setIsEditing(false);
-    setEditTask('');
     setEditingIndex(-1);
     handleCloseModal();
   };
@@ -157,35 +156,49 @@ const Principal = () => {
        </Paper>
        
       <Modal open={isModalOpen} onClose={handleCloseModal}>
-        <Box sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', bgcolor: color, p: 4 }}>
-          <Typography variant="h6" gutterBottom>
+        <Box sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',bgcolor: color || 'rgba(255, 255, 255, 0.2)', p: 4 }}>
+          <Typography
+           variant="h6"
+           color="#FFF"
+           gutterBottom>
             Task
           </Typography>
-          <TextField value={task} onChange={handleInputChange} 
+          <TextField 
+          value={task} 
+          onChange={handleInputChange}
           multiline
           maxRows={4}
-          fullWidth />
+          fullWidth
+          focused 
+          
+           />
           
          
-          <FormControl variant="standard" fullWidth>
-           <InputLabel id="color-label" sx={{ width: '100px', height: '10px' }}></InputLabel>
+          <FormControl 
+           variant="standard"
+           fullWidth
+           focused>
+           <InputLabel  id="color-label" sx={{ width: '100px', height: '10px' }}></InputLabel>
             <Select labelId="color-label" 
             value={color}
             onChange={handleColorChange}
+            style={{ color: 'white' }}
+            
             >
               <MenuItem value="Purple">Purple</MenuItem>
-              <MenuItem value="red">Red</MenuItem>
-              <MenuItem value="green">Green</MenuItem>
-              <MenuItem value="blue">Blue</MenuItem>
-              <MenuItem value="pink">Pink</MenuItem>
-              <MenuItem value="yellow">Yellow</MenuItem>
+              <MenuItem value="#BB0E22">Red</MenuItem>
+              <MenuItem value="#95B634">Green</MenuItem>
+              <MenuItem value="#3E77B6">Blue</MenuItem>
+              <MenuItem value="#F372B9">Pink</MenuItem>
+              <MenuItem value="#F9E97C">Yellow</MenuItem>
+              <MenuItem value="#DF5800">Orange</MenuItem>
             </Select>
           </FormControl>
           
-          <Button variant="contained" color="primary" onClick={handleSaveTask} sx={{ mt: 2 }}>
+          <Button variant="contained" color="primary" onClick={handleSaveTask} sx={{ mt: 2, width:"20px", height:"35px"}}>
           <AiOutlineSave />
          </Button>
-          <Button variant="contained" color="primary" onClick={handleAddTask} sx={{ mt: 2 }}>
+          <Button variant="contained" color="primary" onClick={handleAddTask} sx={{ mt: 2, ml: 1 }}>
             Add
          </Button>
         </Box>
