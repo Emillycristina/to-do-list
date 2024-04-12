@@ -141,7 +141,7 @@ const Principal = () => {
               >
                 {isEditing && editingIndex === index ? (
                   <TextField
-                    value={editTask}
+                    value={editTask.task}
                     onChange={(e) => setEditTask(e.target.value)}
                     fullWidth
                     autoFocus
