@@ -192,7 +192,7 @@ const Principal = () => {
             Task
           </Typography>
           <TextField
-            value={editTask.task}
+            value={editTask}
             onChange={handleInputChange}
             multiline
             maxRows={4}
