@@ -6,7 +6,7 @@ const Navbar = () => {
   
 
   const user = {
-    name: 'Fulano',
+    name: 'User',
     //avatar: 'https://example.com/avatar.jpg',
   };
 
