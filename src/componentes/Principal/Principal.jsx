@@ -150,7 +150,6 @@ const Principal = () => {
                   <Typography variant="body1">{task.task}</Typography>
                 )}
                 <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-                  <Checkbox defaultChecked color="info" size="small" />
                   {isEditing && editingIndex === index ? (
                     <IconButton onClick={() => handleSaveTask(index)}>
                       <AiOutlineSave />
